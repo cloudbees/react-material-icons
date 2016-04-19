@@ -10,7 +10,7 @@ import React from "react";
        for morph change icon effect.
 */
 
-export default class MorphIcon extends React.Component {
+export class MorphIcon extends React.Component {
   constructor() {
     super();
     /* set default shapes */
@@ -33,7 +33,8 @@ export default class MorphIcon extends React.Component {
 
   componentDidMount() {
     /* find target node */
-    var props = this.props, container = this.refs.svgBox.getDOMNode();
+    var props = this.props, container = this.refs.svgBox.getDOMNode ?
+      this.refs.svgBox.getDOMNode() : this.refs.svgBox;
     /* calc options */
     var options = props.options ? props.options : {};
     /* make morph instance */
@@ -59,4 +60,9 @@ export default class MorphIcon extends React.Component {
     /* complete handled svg with morphs set */
     return <svg {...attrs}>{icons}</svg>;
   }
+}
+
+export {
+  MorphIcon,
+  shapes
 }
