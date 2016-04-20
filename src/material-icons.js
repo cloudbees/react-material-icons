@@ -1,5 +1,4 @@
 /* */ 
-import SVGMorpheus from "morpheus-svg";
 import shapes from "./shapes";
 import React from "react";
 
@@ -10,11 +9,16 @@ import React from "react";
        for morph change icon effect.
 */
 
+let SVGMorpheus;
+
 export class MorphIcon extends React.Component {
   constructor() {
     super();
     /* set default shapes */
     this.shapes = shapes;
+    if (window) {
+      SVGMorpheus = require('morpheus-svg');
+    }
   }
 
   morph(icon) {

@@ -1,6 +1,6 @@
 {
   "name": "react-morph-material-icons-clone",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "React Component with google material icons + morpheus effect.",
   "main": "lib/material-icons.js",
   "scripts": {
