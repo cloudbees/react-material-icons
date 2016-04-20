@@ -1,72 +1,34 @@
-/* */ 
-import shapes from "./shapes";
-import React from "react";
+import React, { Component, PropTypes } from 'react';
+import shapes from './shapes';
 
+const { number, object, string } = PropTypes;
 
-/*
-@name: MorphIcon
-@desc: component for handle & actions 
-       for morph change icon effect.
-*/
+export class Icons extends Component {
+    render() {
+        const { style, icon = 'error', size = 25 } = this.props;
+        const icons = shapes[icon];
 
-let SVGMorpheus;
-
-export class MorphIcon extends React.Component {
-  constructor() {
-    super();
-    /* set default shapes */
-    this.shapes = shapes;
-    if (window) {
-      SVGMorpheus = require('morpheus-svg');
-    }
-  }
-
-  morph(icon) {
-    /* morph to next status by ion */
-    this.Morph.to(icon);
-  }
-
-  make(shapes) {
-    /* make path icons for morph actions (serealize) */
-    return this.props.icons.map((icon, i) => {
-      /* attrs props for icon */
-      var attrs = { id: icon, key: i, dangerouslySetInnerHTML: { __html: shapes[icon] } };
-      return <g {...attrs}></g>;
-    });
-  }
-
-  componentDidMount() {
-    /* find target node */
-    var props = this.props, container = this.refs.svgBox.getDOMNode ?
-      this.refs.svgBox.getDOMNode() : this.refs.svgBox;
-    /* calc options */
-    var options = props.options ? props.options : {};
-    /* make morph instance */
-    this.Morph = new SVGMorpheus(container, options);
-  }
-
-  render() {
-    var props = this.props;
-    /* make svg ions variantions */
-    if (props.custom) var icons = this.make(props.shapes);
-    else var icons = this.make(this.shapes);
-    /* calc size */
-    var size = this.props.size || 25;
     /* svg container props attrs */
-    var attrs = {
-      xmlns: "http://www.w3.org/2000/svg",
-      width: size, height: size,
-      viewBox: "0 0 24 24",
-      style: props.style,
-      ref: "svgBox",
-    };
+        const attrs = {
+            style,
+            dangerouslySetInnerHTML: { __html: icons },
+            xmlns: 'http://www.w3.org/2000/svg',
+            width: size, height: size,
+            className: `svg-icon ${icon}`,
+            viewBox: '0 0 24 24',
+        };
 
-    /* complete handled svg with morphs set */
-    return <svg {...attrs}>{icons}</svg>;
-  }
+        return (<svg {...attrs}></svg>);
+    }
 }
+
+Icons.propTypes = {
+    icon: string,
+    size: number,
+    style: object,
+};
 
 export {
-  MorphIcon,
-  shapes
-}
+  Icons,
+  shapes,
+};
