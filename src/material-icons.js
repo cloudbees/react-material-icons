@@ -3,10 +3,10 @@ import shapes from './shapes';
 
 const { number, object, string } = PropTypes;
 
-export class Icons extends Component {
+export class Icon extends Component {
     render() {
-        const { style, icon = 'error', size = 25 } = this.props;
-        const icons = shapes[icon];
+        const { style, icon = 'error', size = 25, custom } = this.props;
+        const icons = custom ? custom : shapes[icon];
 
     /* svg container props attrs */
         const attrs = {
@@ -22,13 +22,14 @@ export class Icons extends Component {
     }
 }
 
-Icons.propTypes = {
+Icon.propTypes = {
     icon: string,
+    custom: string,
     size: number,
     style: object,
 };
 
 export {
-  Icons,
+  Icon,
   shapes,
 };

@@ -18,7 +18,7 @@ ES6
 # Usage
 
 ```
-<Icons
+<Icon
   icon="amazon"// Icon to use
   style={{ fill: "#fff" }} // Styles prop for icon (svg)
 />
