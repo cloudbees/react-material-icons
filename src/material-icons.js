@@ -3,7 +3,7 @@ import shapes from './shapes';
 
 const { number, object, string } = PropTypes;
 
-export class Icon extends Component {
+class Icon extends Component {
     render() {
         const {
             className = '',
