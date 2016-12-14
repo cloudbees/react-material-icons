@@ -5,10 +5,16 @@ const { number, object, string } = PropTypes;
 
 export class Icon extends Component {
     render() {
-        const { style, icon = 'error', size = 25, custom } = this.props;
+        const {
+            icon = 'error',
+            size = 25,
+            custom,
+            style,
+        } = this.props;
+
         const icons = custom ? custom : shapes[icon];
 
-    /* svg container props attrs */
+        /* svg container props attrs */
         const attrs = {
             style,
             dangerouslySetInnerHTML: { __html: icons },
@@ -24,8 +30,8 @@ export class Icon extends Component {
 
 Icon.propTypes = {
     icon: string,
-    custom: string,
     size: number,
+    custom: string,
     style: object,
 };
 
