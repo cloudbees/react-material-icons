@@ -9,6 +9,7 @@ class Icon extends Component {
             className = '',
             icon = 'error',
             size = 25,
+            focusable = false,
             custom,
             style,
         } = this.props;
@@ -18,6 +19,7 @@ class Icon extends Component {
         /* svg container props attrs */
         const attrs = {
             style,
+            focusable,
             dangerouslySetInnerHTML: { __html: icons },
             xmlns: 'http://www.w3.org/2000/svg',
             width: size, height: size,
@@ -33,6 +35,7 @@ Icon.propTypes = {
     className: string,
     icon: string,
     size: number,
+    focusable: string,
     custom: string,
     style: object,
 };
