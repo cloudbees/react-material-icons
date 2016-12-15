@@ -1,6 +1,6 @@
 {
-  "name": "react-material-icons-blue",
-  "version": "1.0.4",
+  "name": "@jenkins-cd/react-material-icons",
+  "version": "1.0.0",
   "description": "React Component with google material icons.",
   "main": "lib/material-icons.js",
   "scripts": {
