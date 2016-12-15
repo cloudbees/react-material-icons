@@ -3,18 +3,27 @@ import shapes from './shapes';
 
 const { number, object, string } = PropTypes;
 
-export class Icon extends Component {
+class Icon extends Component {
     render() {
-        const { style, icon = 'error', size = 25, custom } = this.props;
+        const {
+            className = '',
+            icon = 'error',
+            size = 25,
+            focusable = false,
+            custom,
+            style,
+        } = this.props;
+
         const icons = custom ? custom : shapes[icon];
 
-    /* svg container props attrs */
+        /* svg container props attrs */
         const attrs = {
             style,
+            focusable,
             dangerouslySetInnerHTML: { __html: icons },
             xmlns: 'http://www.w3.org/2000/svg',
             width: size, height: size,
-            className: `svg-icon ${icon}`,
+            className: `svg-icon ${icon} ${className}`,
             viewBox: '0 0 24 24',
         };
 
@@ -23,9 +32,11 @@ export class Icon extends Component {
 }
 
 Icon.propTypes = {
+    className: string,
     icon: string,
-    custom: string,
     size: number,
+    focusable: string,
+    custom: string,
     style: object,
 };
 
