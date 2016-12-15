@@ -6,13 +6,13 @@ Simple component for Material Icons in React.
 
 npm install
 
-```npm install react-material-icons-blue```
+```npm install @jenkins-cd/react-material-icons```
 
 # Import module
 
 ES6
 
-```import {Icons} from "react-material-icons-blue";```
+```import {Icon} from "@jenkins-cd/react-material-icons";```
 
 
 # Usage
@@ -21,5 +21,7 @@ ES6
 <Icon
   icon="amazon"// Icon to use
   style={{ fill: "#fff" }} // Styles prop for icon (svg)
+  className="amazon" // arbitrary class name
+  focusable="true" // applied to svg attribute; false by default
 />
 ```
